@@ -1,8 +1,10 @@
 <launch>
   #TL vicon rocky-rock
   <arg name="server" default="192.168.31.204"/>
+  <remap from="/vrpn_client_node/rock2/pose" to="/S2/mavros/vision_pose/pose" />
+  <remap from="/vrpn_client_node/rock5/pose" to="/S5/mavros/vision_pose/pose" />
   <remap from="/vrpn_client_node/rock1/pose" to="/S1/mavros/vision_pose/pose" />
-
+  
   <node pkg="vrpn_client_ros" type="vrpn_client_node" name="vrpn_client_node" output="screen">
     <rosparam subst_value="true">
       server: $(arg server)
